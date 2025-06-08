@@ -1,0 +1,53 @@
+Grip Strength Prediction using Regression and PCA
+
+Project Overview
+
+This project aims to predict hand grip strength using machine learning techniques and Principal Component Analysis (PCA). The dataset was collected from 140 university students, and models were evaluated based on regression performance metrics such as R² and MSE.
+
+Methodology
+Data Collection
+Grip Strength: Measured with a Camry Dynamometer in standing position with elbow extended. Each participant performed 3 trials, and we used the average.
+
+Height: Measured using a stadiometer (barefoot, proper posture).
+
+Weight: Measured with a digital scale, ensuring confidentiality.
+
+BMI: Computed using height and weight.
+
+Exercise & Smoking Habits: Self-reported as Never, Sometimes, or Always.
+
+Machine Learning Pipeline
+Exploratory Data Analysis (EDA) with Pandas, Seaborn, and Matplotlib
+
+Preprocessing:
+
+OneHotEncoding for categorical variables
+
+StandardScaler for numerical features
+
+Dimensionality Reduction with PCA (optional)
+
+Model Training & Evaluation:
+
+Random Forest, KNN, ElasticNet, XGBoost, Linear Regression
+
+Metrics: R² Score, Mean Squared Error (MSE)
+
+---
+| Model             | MSE (No PCA) | R² (No PCA) | MSE (With PCA) | R² (With PCA) |
+| ----------------- | ------------ | ----------- | -------------- | ------------- |
+| Linear Regression | -            | -           | **45.38**      | **0.588**     |
+| ElasticNet        | 55.34        | 0.497       | 54.50          | 0.505         |
+| KNN Regressor     | 59.25        | 0.462       | 59.25          | 0.462         |
+| Random Forest     | **60.71**    | 0.449       | 69.56          | 0.368         |
+| XGBoost Regressor | 68.13        | 0.381       | **98.76**      | **0.103**     |
+---
+
+## Short Analysis
+
+* **Linear Regression** performed the best with PCA, achieving the lowest MSE and highest R² (≈0.59).
+* **ElasticNet** also showed competitive performance and was more robust to overfitting.
+* **Tree-based models (Random Forest, XGBoost)** did not benefit from PCA and performed worse.
+* **PCA** helped improve performance for linear models but degraded performance in ensemble models due to information loss in high-dimensional splits.
+
+
